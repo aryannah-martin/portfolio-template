@@ -1,11 +1,10 @@
 
-const themeToggle = document.getElementById("themeToggle");
+const toggle = document.getElementById('themeToggle');
 
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-  });
-}
+toggle?.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+});
 
 
 const loadBtn = document.getElementById("load");
