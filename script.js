@@ -6,25 +6,49 @@ toggle?.addEventListener('click', () => {
   document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 });
 
-document.getElementById("load").addEventListener("click", () => {
-  const quoteElement = document.getElementById("quote");
-  quoteElement.textContent = "Loading quote... ✨";
+//document.getElementById("load").addEventListener("click", () => {
+  //const quoteElement = document.getElementById("quote");
+  //quoteElement.textContent = "Loading quote... ✨";
 
-  fetch("https://api.quotable.io/random")
-    .then(res => {
-      if (!res.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return res.json();
-    })
-    .then(data => {
-      quoteElement.textContent = `"${data.content}" — ${data.author}`;
-    })
-    .catch(error => {
-      console.error("Error fetching quote:", error);
-      quoteElement.textContent = "Unable to load quote 💔";
-    });
-});
+  //fetch("https://api.quotable.io/random")
+    //.then(res => {
+      //if (!res.ok) {
+        //throw new Error("Network response was not ok");
+      //}
+      //return res.json();
+    //})
+    //.then(data => {
+      //quoteElement.textContent = `"${data.content}" — ${data.author}`;
+    //})
+    //.catch(error => {
+      //console.error("Error fetching quote:", error);
+      //quoteElement.textContent = "Unable to load quote 💔";
+    //});
+//});
+
+const loadBtn = document.getElementById("load");
+if (loadBtn) {
+  loadBtn.addEventListener("click", () => {
+    const quoteElement = document.getElementById("quote");
+    quoteElement.textContent = "Loading quote... ✨";
+
+    fetch("https://api.quotable.io/random")
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
+      .then(data => {
+        quoteElement.textContent = `"${data.content}" — ${data.author}`;
+      })
+      .catch(error => {
+        console.error("Error fetching quote:", error);
+        quoteElement.textContent = "Unable to load quote 💔";
+      });
+  });
+}
+
 
 // -----------------------------
 // THEME TOGGLER
