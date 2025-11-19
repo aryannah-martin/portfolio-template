@@ -1,6 +1,4 @@
-// =========================================================
-// ⭐ GLOBAL THEME TOGGLER (works on every page)
-// =========================================================
+
 const themeToggle = document.getElementById("themeToggle");
 
 if (themeToggle) {
@@ -10,11 +8,6 @@ if (themeToggle) {
 }
 
 
-
-// =========================================================
-// ⭐ AFFIRMATIONS PAGE — RANDOM QUOTE
-// (runs ONLY if the page contains the #load button)
-// =========================================================
 const loadBtn = document.getElementById("load");
 const quoteElement = document.getElementById("quote");
 
@@ -35,10 +28,7 @@ if (loadBtn && quoteElement) {
 
 
 
-// =========================================================
-// ⭐ WEATHER PAGE — CUTE WEATHER APP
-// (runs ONLY if weather elements exist)
-// =========================================================
+
 const weatherBtn = document.getElementById("checkWeatherBtn");
 const cityInput = document.getElementById("cityInput");
 
@@ -96,10 +86,7 @@ async function getWeather() {
 
 
 
-// =========================================================
-// ⭐ CONTACT FORM — SAFE SUBMIT
-// (runs ONLY on the contact page)
-// =========================================================
+
 const contactForm = document.getElementById("contactForm");
 const statusBox = document.getElementById("status");
 
