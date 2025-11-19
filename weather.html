@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cute Weather App • Aryannah</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Aryannah</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="weather.html" class="active">Weather</a>
+        <a href="affirmations.html">Affirmations</a>
+        
+        <a href="contact.html">Contact</a>
+      </div>
+      <button id="themeToggle" aria-label="Toggle theme">🌓</button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <div class="section-title">
+      <h2>Cute Weather App</h2>
+      <div class="section-sub">A soft, aesthetic way to check the weather 🌤💞</div>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div style="max-width:400px;margin:0 auto;text-align:center;">
+      <input id="cityInput" 
+             placeholder="Enter a city..."
+             style="width:100%;padding:12px;border-radius:14px;border:1px solid var(--border);background:var(--card);">
+      
+      <button id="checkWeatherBtn" class="btn" style="margin-top:12px;">Check Weather</button>
+    </div>
+
+    <!-- RESULT CARD -->
+    <div id="weatherCard" 
+         style="display:none;margin:28px auto;padding:20px;border-radius:18px;
+                background:var(--card);border:1px solid var(--border);
+                box-shadow:0 8px 24px rgba(0,0,0,0.05);max-width:400px;
+                text-align:center;">
+      
+      <h3 id="cityName" style="margin:0 0 10px 0;"></h3>
+      <p id="temp" style="font-size:2rem;margin:0;"></p>
+      <p id="description" style="margin:10px 0;"></p>
+      <p id="details" style="color:var(--muted);font-size:0.95rem;"></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Aryannah • Cute Weather App</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
