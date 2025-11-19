@@ -26,26 +26,71 @@ document.getElementById("load").addEventListener("click", () => {
     });
 });
 
-// --- Get user location and fetch weather from Open-Meteo ---
-async function getWeather() {
-  const latitude = 40.7128;   // change this
-  const longitude = -74.0060; // change this
+// -----------------------------
+// THEME TOGGLER
+// -----------------------------
+const themeToggle = document.getElementById("themeToggle");
 
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+// -----------------------------
+// WEATHER APP
+// -----------------------------
+
+const btn = document.getElementById("checkWeatherBtn");
+const input = document.getElementById("cityInput");
+
+// Click event
+btn.addEventListener("click", getWeather);
+
+async function getWeather() {
+  const city = input.value.trim();
+  if (!city) {
+    alert("Please type a city 🩷");
+    return;
+  }
 
   try {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
+    // 1️⃣ Convert city → coordinates using Open-Meteo Geocoding API
+    const geoURL = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`;
 
-    document.getElementById("temp").textContent =
-      data.current_weather.temperature + "°C";
+    const geoRes = await fetch(geoURL);
+    const geoData = await geoRes.json();
+
+    if (!geoData.results || geoData.results.length === 0) {
+      alert("City not found 💔 Try a different one.");
+      return;
+    }
+
+    const { latitude, longitude, name, country } = geoData.results[0];
+
+    // 2️⃣ Get weather for those coordinates
+    const weatherURL =
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}` +
+      `&current_weather=true`;
+
+    const weatherRes = await fetch(weatherURL);
+    const weatherData = await weatherRes.json();
+
+    const weather = weatherData.current_weather;
+
+    // 3️⃣ Update UI
+    document.getElementById("cityName").textContent = `${name}, ${country}`;
+    document.getElementById("temp").textContent = weather.temperature + "°C";
+    document.getElementById("description").textContent =
+      "Feels like " + weather.temperature + "°C";
+    document.getElementById("details").textContent =
+      `Wind: ${weather.windspeed} km/h • Direction: ${weather.winddirection}°`;
+
+    document.getElementById("weatherCard").style.display = "block";
+
   } catch (error) {
-    console.error("Error fetching weather:", error);
+    console.error("Weather error:", error);
+    alert("Something went wrong 😭");
   }
 }
-
-getWeather();
 
 
 
