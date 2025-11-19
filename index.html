@@ -3,27 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name • Portfolio</title>
+  <title>Aryannah • Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <nav class="nav">
-    <a href="./">Home</a>
-    <a href="./projects.html">Projects</a>
-    <a href="./contact.html">Contact</a>
-    <button id="themeToggle" aria-label="Toggle theme">🌓</button>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Aryannah</a>
+      <div class="links">
+        <a href="index.html" class="active">Home</a>
+        <a href="weather.html">Weather</a>
+        <a href="affirmations.html">Affirmations</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button id="themeToggle" aria-label="Toggle theme">🌓</button>
+    </div>
   </nav>
 
-  <header class="hero">
-    <img class="avatar" src="assets/avatar.png" alt="Your portrait" />
-    <h1>Hello, I’m <span id="studentName">Your Name</span></h1>
-    <p class="tagline">Web Design & Development Student</p>
-  </header>
+  <main class="container">
 
-  <section class="api">
-    <h2>API Demo</h2>
-    <p id="quote">Loading a quote via fetch()…</p>
-  </section>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-card">
+        <img class="avatar" src="pfp.jpg" alt="Aryannah avatar" />
+        <div class="hero-text">
+          <h1>Hi, I'm <span class="highlight">Aryannah</span></h1>
+          <p>
+          I’m Aryannah, a sophomore at Lincoln University studying Computer Science and serving as a Campus Health & Wellness Ambassador. 
+          I’m confident, creative, and energized, with a love for baking even though cooking isn’t my thing. My favorite color is yellow, 
+          and I carry that brightness into how I show up for people. I have a tiny black dog named Bear who keeps life playful, 
+          and cherries hold a special place in my story since they inspired my very first tattoo. 
+          Altogether, I’m someone who blends warmth, individuality, and drive into everything I do.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" href="contact.html">Get in touch</a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API SECTION -->
+    <section class="api container">
+      <h2>Daily Inspiration</h2>
+      <p id="quote">Loading quote...</p>
+      <button id="load" class="btn" style="margin-top:10px;">Load Quote</button>
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+    <section class="container">
+      <div class="section-title">
+        <h2>Featured Projects</h2>
+        <div class="section-sub">Selected works — aesthetic, responsive</div>
+      </div>
+
+      <div class="grid">
+        
+        <article class="card">
+          <h3>Daily Affirmation Hub</h3>
+          <p>A soft, aesthetic site that shows daily affirmations and uplifting quotes.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <a class="btn" href="affirmations.html">View</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Cute Weather App</h3>
+          <p>A soft, aesthetic weather tool using a real API to show temperature and conditions.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            
+            <a class="btn" href="weather.html">View</a>
+          </div>
+        </article>
+
+
+        
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Aryannah • Portfolio</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
